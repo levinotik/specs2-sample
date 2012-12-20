@@ -15,10 +15,6 @@ class SortsSpec extends Specification {
   val unsortedArrayLarge = util.Random.shuffle((1 to 10000 toArray).toList).toArray
   val unsortedArrayHuge = util.Random.shuffle((1 to 100000 toArray).toList).toArray
 
-  val sortedArraySmall = 1 to 10 toArray
-  val sortedArrayLarge = 1 to 10000 toArray
-  val sortedArrayHuge = 1 to 100000 toArray
-
   "The Array [3, 2, 1] " should {
     "become Array [1, 2, 3]" in {
       Sorts.insertionSort(Array(3, 2, 1)) must equalTo(Array(1, 2, 3))
@@ -45,19 +41,19 @@ class SortsSpec extends Specification {
 
   "The unsorted Array [1..10]" should {
     "become Array [1,2..10]" in {
-      Sorts.insertionSort(unsortedArraySmall) mustEqual (sortedArraySmall)
+      Sorts.insertionSort(unsortedArraySmall) mustEqual (unsortedArraySmall.sortWith(_ < _))
     }
   }
 
   "The unsorted Array [1..10000]" should {
     "become Array [1,2..10000]" in {
-      Sorts.insertionSort(unsortedArrayLarge) mustEqual (sortedArrayLarge)
+      Sorts.insertionSort(unsortedArrayLarge) mustEqual (unsortedArrayLarge.sortWith(_ < _))
     }
   }
 
   "The unsorted Array [1..100000]" should {
     "become Array [1,2..100000]" in {
-      Sorts.insertionSort(unsortedArrayHuge) mustEqual (sortedArrayHuge)
+      Sorts.insertionSort(unsortedArrayHuge) mustEqual (unsortedArrayHuge.sortWith(_ < _))
     }
   }
 }
