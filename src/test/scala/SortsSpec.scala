@@ -7,9 +7,9 @@ import org.specs2.mutable._
 class SortsSpec extends Specification {
 
 
-  val reverseSortedArraySmall = 10 to 1 by -1 toArray
-  val revorseSortedArrayLarge = 10000 to 1 by -1 toArray
-  val reverseSortedArrayHuge = 100000 to 1 by -1 toArray
+  val reverseSortedArraySmall = (10 to 1 by -1).toArray
+  val revorseSortedArrayLarge = (10000 to 1 by -1).toArray
+  val reverseSortedArrayHuge = (100000 to 1 by -1).toArray
 
   val unsortedArraySmall = util.Random.shuffle((1 to 10 toArray).toList).toArray
   val unsortedArrayLarge = util.Random.shuffle((1 to 10000 toArray).toList).toArray
